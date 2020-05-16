@@ -38,7 +38,7 @@ jobs:
       # - run: npm install angular-cli@latest
       
       - run: rm -f package-lock.json
-      - run: yarn install
+      - run: yarn install --ignore-engines
 
       # - run: rm -rf node_modules/
       # - run: rm -f package-lock.json
