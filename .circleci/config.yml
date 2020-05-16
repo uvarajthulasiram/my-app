@@ -32,7 +32,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       
-      - run: scoop install nodejs
+      - run: pkg install node
       - run: npm install npm@latest
       - run: npm install angular-cli@latest
 
