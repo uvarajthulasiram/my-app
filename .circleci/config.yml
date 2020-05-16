@@ -44,7 +44,7 @@ jobs:
       # - run: rm -f package-lock.json
       # - run: npm cache clean --force
 
-      - run: yarn ng --build --prod --aot --no-progress
+      - run: yarn ng build --prod
 
       - run:
           command: |
