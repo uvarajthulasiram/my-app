@@ -51,10 +51,10 @@ jobs:
 
       - run:
           command: |
-            docker build -t uvarajat.azurecr.io/myapp:1.0 .
+            docker build -t uvarajat.azurecr.io/myapp:1.1 .
       - run:
           command: |
             docker login --username $DOCKER_USER --password $DOCKER_PASS uvarajat.azurecr.io
       - run:
           command: |
-            docker push uvarajat.azurecr.io/myapp:1.0
+            docker push uvarajat.azurecr.io/myapp:1.1
