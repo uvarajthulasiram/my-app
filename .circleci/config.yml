@@ -21,12 +21,6 @@ jobs:
       - setup_remote_docker
 
       # Download and cache dependencies
-      - run:
-        name: "Update Node.js and npm"
-        command: |
-          curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
-          curl https://www.npmjs.com/install.sh | sudo bash
-
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -39,7 +33,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: npm run build --prod
+      - run: yarn run build --prod
 
       - run:
           command: |
