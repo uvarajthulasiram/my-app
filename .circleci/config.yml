@@ -32,15 +32,17 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       
-      - run: curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-      - run: sudo apt-get install -y nodejs
-      - run: npm install npm@6.14.4
-      - run: yarn install
-      - run: npm install angular-cli@latest
+      # - run: curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      # - run: sudo apt-get install -y nodejs
+      # - run: npm install npm@6.14.4
+      # - run: npm install angular-cli@latest
       
-      - run: rm -rf node_modules/
       - run: rm -f package-lock.json
-      - run: npm cache clean --force
+      - run: yarn install
+
+      # - run: rm -rf node_modules/
+      # - run: rm -f package-lock.json
+      # - run: npm cache clean --force
 
       - run: yarn ng --build --prod --aot --no-progress
 
