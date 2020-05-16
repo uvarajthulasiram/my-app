@@ -47,12 +47,14 @@ jobs:
           name: verify node version
           command: node --version
 
-      # - run:
-      #     command: |
-      #       docker build -t uvarajat.azurecr.io/myapp:1.0 .
-      # - run:
-      #     command: |
-      #       docker login --username $DOCKER_USER --password $DOCKER_PASS uvarajat.azurecr.io
-      # - run:
-      #     command: |
-      #       docker push uvarajat.azurecr.io/myapp:1.0
+      - run: npm run pbuild
+
+      - run:
+          command: |
+            docker build -t uvarajat.azurecr.io/myapp:1.0 .
+      - run:
+          command: |
+            docker login --username $DOCKER_USER --password $DOCKER_PASS uvarajat.azurecr.io
+      - run:
+          command: |
+            docker push uvarajat.azurecr.io/myapp:1.0
