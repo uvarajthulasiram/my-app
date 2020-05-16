@@ -32,11 +32,10 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       
-      - run: nvm install node
-      - run: nvm use node
-      - run: npm install
-      # run tests!
-      - run: npm run build --prod
+      - run: npm install npm@latest -g
+      - run: npm install angular-cli@latest -g
+
+      - run: yarn ng build --prod
 
       - run:
           command: |
